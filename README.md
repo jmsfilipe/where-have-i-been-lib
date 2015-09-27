@@ -36,7 +36,7 @@ Adaptation of Ramer Douglas-Peucker, by Tkrajina, including both spatial and tem
 
 ####Reducing number of points
 
-Ĩntended to remove points that are not within a minimum distance of each other. This minimum separation between points is specified in meters. 
+Intended to remove points that are not within a minimum distance of each other. This minimum separation between points is specified in meters. 
 
 `reduce_points(min_distance, min_time)` 
 
