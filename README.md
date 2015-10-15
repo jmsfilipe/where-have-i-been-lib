@@ -1,6 +1,17 @@
 # Where Have I Been
 ## GPX Library
 
+###Intro
+
+This repository offers the source code of the GPX library used in Where Have I Been.
+
+We devised a library to process GPX files, based on the work of tkrajina.
+
+This library has several main purposes:
+* smoothing GPX files
+* dividing GPX files into tracks representing, each, a moment of movement
+* Reducing dataset size
+
 ###Auxiliary library to process GPX tracks
 
 Important methods specified by calling order:
