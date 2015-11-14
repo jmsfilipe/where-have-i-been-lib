@@ -47,7 +47,7 @@ if __name__ == '__main__':
             else:
                 name += 1
 
-            segment.smooth(True, 1.5, 1.05, 0)
+            segment.smooth(True, 1.5)
             segment.simplify(0.01,5) #RDP
             segment.reduce_points(10, 5)
 

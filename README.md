@@ -59,6 +59,6 @@ Intended to remove points that are not within a minimum distance of each other. 
 
 `reduce_points(min_distance, min_time)` 
 
-**min_distance** - represents the maximum number of outputted points
+**min_distance** - the minimum distance between points (meters)
 
-**min_time** - the minimum distance between points
+**min_time** - the minimum time between points (seconds)
