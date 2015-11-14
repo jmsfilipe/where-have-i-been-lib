@@ -694,10 +694,10 @@ class GPXTrack:
 
         return mod_geo.Location(latitude=sum_lat / n, longitude=sum_lon / n)
 
-    def smooth(self, remove_extremes, how_much_to_smooth, min_sameness_distance, min_sameness_interval):
+    def smooth(self, remove_extremes, how_much_to_smooth, min_sameness_distance):
         """ See: GPXTrackSegment.smooth() """
         for track_segment in self.segments:
-            track_segment.smooth(remove_extremes, how_much_to_smooth, min_sameness_distance, min_sameness_interval)
+            track_segment.smooth(remove_extremes, how_much_to_smooth, min_sameness_distance)
 
     def has_times(self):
         """ See GPXTrackSegment.has_times() """
@@ -1156,7 +1156,7 @@ class GPXTrackSegment:
 
         return result, result_track_point_no
 
-    def smooth(self, remove_extremes, how_much_to_smooth, min_sameness_distance, min_sameness_interval):
+    def smooth(self, remove_extremes, how_much_to_smooth):
         if len(self.points) <= 3:
             return
 
@@ -1200,7 +1200,7 @@ class GPXTrackSegment:
 
             #print d1, d2, d, remove_extremes
 
-            if d1 + d2 > d * min_sameness_distance and remove_extremes:
+            if d1 + d2 > d * 1.05 and remove_extremes:
                 d = mod_geo.distance(old_latitude, old_longitude, None, new_latitude, new_longitude, None)
                 #print "d, threshold = ", d, remove_2d_extremes_threshold
                 if d < remove_2d_extremes_threshold:
@@ -1488,10 +1488,10 @@ class GPX:
         self.min_longitude = bounds.min_longitude
         self.max_longitude = bounds.max_longitude
 
-    def smooth(self, remove_extremes, how_much_to_smooth, min_sameness_distance, min_sameness_interval):
+    def smooth(self, remove_extremes, how_much_to_smooth):
         """ See GPXTrackSegment.smooth(...) """
         for track in self.tracks:
-            track.smooth(remove_extremes, how_much_to_smooth, min_sameness_distance, min_sameness_interval)
+            track.smooth(remove_extremes, how_much_to_smooth)
 
     def remove_empty(self):
         """ Removes segments, routes """
